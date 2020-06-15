@@ -2,6 +2,8 @@ GHelper = GHelper or {};
 
 print( '[GHelper] Initialization of the addon...' );
 
+--- Searches for scripts in the project folder.
+-- @param DirectoryPath project folder
 local function GetAddonFilelist( DirectoryPath )
     local FileList = {};
     local Files, Dirs = file.Find( DirectoryPath .. '/*', 'LUA' );
@@ -22,8 +24,10 @@ local function GetAddonFilelist( DirectoryPath )
     return FileList;
 end;
 
+-- Get the project files
 local AddonFileList = GetAddonFilelist( 'ghelper_root' );
 
+-- We include project files
 for FilePath, Type in pairs( AddonFileList ) do
     print( '[GHelper] Loading script -> ' .. FilePath );
 
